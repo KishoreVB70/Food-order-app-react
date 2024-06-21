@@ -50,7 +50,6 @@ li {
 .res-card {
    display: flex;
    flex-direction: column;
-   justify-content: center;
    align-items: center;
    border: 2px solid black;
    width: 10vw;
