@@ -17,12 +17,22 @@ const Header = () => (
     </div>
 )
 
-const Body = () => (
-    <div className="body" >
-        <h1>Welcome to the food app</h1>
-    </div>
+
+const RestoCard = () => (
+    <div className="res-card"> Card </div>
 )
 
+const Body = () => (
+    <div className="body" >
+        <div className="search">
+            Search
+        </div>
+        <div className="res-container">
+            <RestoCard />
+            <RestoCard />
+        </div>
+    </div>
+)
 
 const Footer = () => (
     <div className="footer" >
