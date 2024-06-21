@@ -1,30 +1,31 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const Body = () => (
-    <div>
+const Header = () => (
+    <div id="header" >
         <h1>Welcome to the food app</h1>
     </div>
 )
 
-const Header = () => (
-    <div>
+const Body = () => (
+    <div id="body" >
         <h1>Welcome to the food app</h1>
     </div>
 )
+
 
 const Footer = () => (
-    <div>
+    <div id="footer" >
         <h1>Welcome to the food app</h1>
     </div>
 )
 
 const AppLayout = () => (
-    <>
+    <div id="App">
         <Header/>
         <Body/>
         <Footer/>
-    </>
+    </div>
 )
 
 
