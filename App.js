@@ -22,8 +22,8 @@ const RestoCard = () => (
     <div className="res-card">
         <h3 className="res-name" >Cock Ra Co</h3>
         <img className="res-img" src="https://imgs.search.brave.com/6S2dgLZXG22sVdx4GqqT50BrYjXr6NmEUWCDHBwNMGk/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuamRtYWdpY2Jv/eC5jb20vY29tcC9j/b2ltYmF0b3JlL3M1/LzA0MjJweDQyMi54/NDIyLjExMDEwMjEy/MDEzOS55OXM1L2Nh/dGFsb2d1ZS9jb2Nr/LXJhLWNvLXJzLXB1/cmFtLWNvaW1iYXRv/cmUtY29pbWJhdG9y/ZS1ob21lLWRlbGl2/ZXJ5LXJlc3RhdXJh/bnRzLW02dTRjLmpw/Zz9jbHI9IzFjNGEx/Yw" />
-        <h3>Rating: 5</h3>
-        <h3>RS Puram</h3>
+        <h4>Rating: 5</h4>  
+        <h4>RS Puram</h4>
         <text>South Indian</text>
         <text>20 Km</text>
         <text>45 mins</text>
