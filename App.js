@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const body = () => (
+const Body = () => (
     <div>
         <h1>Welcome to the food app</h1>
     </div>
 )
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(body);
+root.render(<Body></Body>);
 
