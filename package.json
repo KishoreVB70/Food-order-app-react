@@ -1,0 +1,11 @@
+{
+  "name": "food-deliver-react",
+  "version": "1.0.0",
+  "description": "Food delivery application",
+  "main": "App.js",
+  "scripts": {
+    "test": "Jest"
+  },
+  "author": "Kishore",
+  "license": "ISC"
+}
