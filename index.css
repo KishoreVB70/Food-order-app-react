@@ -1,3 +1,35 @@
 h1 {
     color: red;
 }
+
+/* Header Styling */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    border: 2px solid grey;
+    padding: 10px;
+}
+
+.nav-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 120px;
+    height: 120px;
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+}
+
+li {
+    padding-right: 50px;
+    font-size: 22px;
+    margin: 5px;
+}
