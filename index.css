@@ -33,3 +33,32 @@ li {
     font-size: 22px;
     margin: 5px;
 }
+
+/* Body styling */
+.body {
+    margin: 10px;
+    height: 65vh;
+}
+
+.res-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+
+}
+
+.res-card {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   border: 2px solid black;
+   width: 10vw;
+   height: 30vh;
+   padding: 5px;
+}
+
+.res-img {
+    height: 60px;
+    width: 60px;
+}

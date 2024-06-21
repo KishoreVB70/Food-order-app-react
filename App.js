@@ -38,6 +38,7 @@ const Body = () => (
         <div className="res-container">
             <RestoCard />
             <RestoCard />
+            <RestoCard />
         </div>
     </div>
 )
