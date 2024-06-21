@@ -47,7 +47,12 @@ const Body = () => (
 
 const Footer = () => (
     <div className="footer" >
-        <h1>Welcome to the food app</h1>
+        <ul>
+            <li>Copyright</li>
+            <li>Socials</li>
+            <li>Address</li>
+            <li>Contact</li>
+        </ul>
     </div>
 )
 

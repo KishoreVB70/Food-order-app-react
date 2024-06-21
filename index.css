@@ -25,7 +25,9 @@ h1 {
 
 ul {
     display: flex;
+    justify-content: space-between;
     list-style-type: none;
+    align-items: center;
 }
 
 li {
@@ -60,4 +62,17 @@ li {
 .res-img {
     height: 60px;
     width: 60px;
+}
+
+/* Footer stuffs*/
+.footer {
+    display: flex;
+    border: 1px solid black;
+    height: 130px;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer > ul{
+    width: 90vw;
 }
