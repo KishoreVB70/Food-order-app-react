@@ -19,7 +19,15 @@ const Header = () => (
 
 
 const RestoCard = () => (
-    <div className="res-card"> Card </div>
+    <div className="res-card">
+        <h3 className="res-name" >Name</h3>
+        <img className="res-img" src="https://imgs.search.brave.com/l0684uJjP2-PEeXdGv36QCfwESGiaMssVCaeHKdgqTc/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9zZWVr/bG9nby5jb20vaW1h/Z2VzL1QvVGFjb19C/ZWxsLWxvZ28tN0Uy/MEMzMzU0RS1zZWVr/bG9nby5jb20ucG5n" />
+        <h3>Rating</h3>
+        <h3>Location</h3>
+        <text>Cuisine</text>
+        <text>Distance</text>
+        <text>Time</text>
+    </div>
 )
 
 const Body = () => (
