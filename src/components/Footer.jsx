@@ -1,4 +1,4 @@
-export const Footer = () => (
+const Footer = () => (
     <div className="footer" >
         <ul>
             <li>Copyright</li>
@@ -8,3 +8,5 @@ export const Footer = () => (
         </ul>
     </div>
 )
+
+export default Footer;

@@ -1,4 +1,4 @@
-export const ResCard = ({data}) =>  {
+const ResCard = ({data}) =>  {
     const {resName, imageUrl, rating, cuisine, costForTwo } = data;
     return (
         <div className="res-card">
@@ -13,3 +13,5 @@ export const ResCard = ({data}) =>  {
         </div>
     )
 }
+
+export default ResCard;
