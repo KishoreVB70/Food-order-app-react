@@ -6,11 +6,15 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Body from "./components/Body";
 
+// Utils
+import { appLogo } from "../utils/constants.js"
+import { resData } from "../utils/constants.js"
+
 // APP
 const AppLayout = () => (
     <div className="App">
-        <Header/>
-        <Body/>
+        <Header appLogo={appLogo} />
+        <Body resData={resData} />
         <Footer/>
     </div>
 )
