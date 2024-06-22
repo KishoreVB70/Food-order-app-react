@@ -1,4 +1,4 @@
-const Footer = () => (
+export const Footer = () => (
     <div className="footer" >
         <ul>
             <li>Copyright</li>
