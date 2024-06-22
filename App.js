@@ -23,18 +23,21 @@ const Header = () => (
 )
 
 
-const RestoCard = ({data}) => (
-    <div className="res-card">
-        <h3 className="res-name" >{data.resName}</h3>
-        <img className="res-img" src={data.imageUrl} />
-        <h4>Rating: {data.rating}</h4>  
-        <h4>RS Puram</h4>
-        <text>{data.cuisine}</text>
-        <text>20 Km</text>
-        <text>45 mins</text>
-        <text>Cost for two: {data.costForTwo}</text>
-    </div>
-)
+const RestoCard = ({data}) =>  {
+    const {resName, imageUrl, rating, cuisine, costForTwo } = data;
+    return (
+        <div className="res-card">
+            <h3 className="res-name" >{resName}</h3>
+            <img className="res-img" src={imageUrl} />
+            <h4>Rating: {rating}</h4>  
+            <h4>RS Puram</h4>
+            <text>{cuisine}</text>
+            <text>20 Km</text>
+            <text>45 mins</text>
+            <text>Cost for two: {costForTwo}</text>
+        </div>
+    )
+}
 
 const Body = () => (
     <div className="body" >
