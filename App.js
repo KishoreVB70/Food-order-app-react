@@ -45,9 +45,9 @@ const Body = () => (
             Search
         </div>
         <div className="res-container">
-            <RestoCard data={restData[0]}/>
-            <RestoCard data={restData[1]}/>
-            <RestoCard data={restData[2]}/>
+            {
+                restData.map(rest => (<RestoCard data={rest} />))
+            }
         </div>
     </div>
 )
