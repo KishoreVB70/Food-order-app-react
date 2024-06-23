@@ -8,8 +8,8 @@ const Body = ( {resData} ) => {
     // State variable
     const [restData, setResData] = useState([]);
 
-    const bot = () => {
-        setResData( (data) => resData.filter(res => res.rating > 4.2));
+    const filterRated = () => {
+        setResData( (data) => restData.filter(res => res.rating > 4.2));
     } 
 
     const fetchRestaurants = async() => {
@@ -42,7 +42,7 @@ const Body = ( {resData} ) => {
     return (
         <div className="body" >
             <div className="filter">
-                <button className="rated-btn" onClick={bot} >Top Rated restaurants</button>
+                <button className="rated-btn" onClick={filterRated} >Top Rated restaurants</button>
             </div>
             <div className="res-container">
                 {
