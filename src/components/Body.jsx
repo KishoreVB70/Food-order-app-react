@@ -6,7 +6,7 @@ import { swiggyAPI } from "../../utils/constants"
 
 const Body = ( {resData} ) => {
     // State variable
-    const [restData, setResData] = useState(resData);
+    const [restData, setResData] = useState([]);
 
     const bot = () => {
         setResData( (data) => resData.filter(res => res.rating > 4.2));
@@ -18,9 +18,10 @@ const Body = ( {resData} ) => {
         const restaurants = jsonData.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
         console.log(restaurants);
         const streamlinedRestaurants = restaurants.map((res) => {
-            const {name, areaName, avgRating, cloudinaryImageId, costForTwo, cuisines} = res.info;
+            const {name, id, areaName, avgRating, cloudinaryImageId, costForTwo, cuisines} = res.info;
             return {
-                name: name,
+                resId: id,
+                resName: name,
                 area: areaName,
                 rating: avgRating,
                 imageId: cloudinaryImageId,
@@ -28,6 +29,7 @@ const Body = ( {resData} ) => {
                 cuisine: cuisines[0]
             };
         });
+        setResData(() => streamlinedRestaurants);
         console.log(streamlinedRestaurants);
 
     }
