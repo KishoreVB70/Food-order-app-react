@@ -1,5 +1,6 @@
 import ResCard from "./ResCard";
 import { useState, useEffect } from "react";
+import { swiggyAPI } from "../../utils/constants"
 
 
 
@@ -12,7 +13,11 @@ const Body = ( {resData} ) => {
     } 
 
     // Will be called after the component is rendered
-    useEffect(() => console.log("UI rendered"), []);
+    useEffect( async() => {
+        const data = await fetch(swiggyAPI);
+        const jsonData = await data.json();
+        console.log(jsonData);
+    }, []);
 
     return (
         <div className="body" >
