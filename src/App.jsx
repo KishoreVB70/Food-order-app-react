@@ -8,7 +8,7 @@ import Body from "./components/Body";
 
 // Utils
 import { appLogo } from "../utils/constants.js"
-import { resData } from "../utils/constants.js"
+import resData from "../utils/constants.js"
 
 // APP
 const AppLayout = () => (
