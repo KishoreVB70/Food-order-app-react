@@ -12,11 +12,15 @@ const Body = ( {resData} ) => {
         setResData( (data) => resData.filter(res => res.rating > 4.2));
     } 
 
-    // Will be called after the component is rendered
-    useEffect( async() => {
+    const fetchRestaurants = async() => {
         const data = await fetch(swiggyAPI);
         const jsonData = await data.json();
         console.log(jsonData);
+    }
+
+    // Will be called after the component is rendered
+    useEffect(() => {
+        fetchRestaurants();
     }, []);
 
     return (
