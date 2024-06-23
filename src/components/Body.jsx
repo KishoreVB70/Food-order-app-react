@@ -4,19 +4,30 @@ import { swiggyAPI } from "../../utils/constants"
 
 
 
-const Body = ( {resData} ) => {
+const Body = () => {
     // State variable
     const [restData, setResData] = useState([]);
+    const [filterbtn, setFilterBtn] = useState("Top rated restaurants");
 
     const filterRated = () => {
-        setResData( (data) => restData.filter(res => res.rating > 4.2));
+        if ( filterbtn === "Show All" ) {
+            setResData( (data) => restData);
+        } else {
+            setResData( data => data.filter(res => res.rating > 4.3));
+        }
+
+        setFilterBtn( (btn) => {
+            if (btn == "Show All") {
+                return "Top rated restaurants"
+            }
+            return "Show All";
+        })
     } 
 
     const fetchRestaurants = async() => {
         const data = await fetch(swiggyAPI);
         const jsonData = await data.json();
         const restaurants = jsonData.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
-        console.log(restaurants);
         const streamlinedRestaurants = restaurants.map((res) => {
             const {name, id, areaName, avgRating, cloudinaryImageId, costForTwo, cuisines} = res.info;
             return {
@@ -30,8 +41,6 @@ const Body = ( {resData} ) => {
             };
         });
         setResData(() => streamlinedRestaurants);
-        console.log(streamlinedRestaurants);
-
     }
 
     // Will be called after the component is rendered
@@ -42,7 +51,7 @@ const Body = ( {resData} ) => {
     return (
         <div className="body" >
             <div className="filter">
-                <button className="rated-btn" onClick={filterRated} >Top Rated restaurants</button>
+                <button className="rated-btn" onClick={filterRated} >{filterbtn}</button>
             </div>
             <div className="res-container">
                 {
