@@ -1,5 +1,5 @@
 import ResCard from "./ResCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 
@@ -10,6 +10,9 @@ const Body = ( {resData} ) => {
     const bot = () => {
         setResData( (data) => resData.filter(res => res.rating > 4.2));
     } 
+
+    // Will be called after the component is rendered
+    useEffect(() => console.log("UI rendered"), []);
 
     return (
         <div className="body" >
