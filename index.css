@@ -36,6 +36,20 @@ li {
     margin: 5px;
 }
 
+.login-btn {
+    width: 60px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.login-btn:hover {
+    cursor: pointer;
+    color: white;
+    background-color: black;
+
+}
+
+
 /* Body styling */
 .body {
     margin: 10px;
