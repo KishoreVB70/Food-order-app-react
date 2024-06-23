@@ -15,7 +15,21 @@ const Body = ( {resData} ) => {
     const fetchRestaurants = async() => {
         const data = await fetch(swiggyAPI);
         const jsonData = await data.json();
-        console.log(jsonData);
+        const restaurants = jsonData.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
+        console.log(restaurants);
+        const streamlinedRestaurants = restaurants.map((res) => {
+            const {name, areaName, avgRating, cloudinaryImageId, costForTwo, cuisines} = res.info;
+            return {
+                name: name,
+                area: areaName,
+                rating: avgRating,
+                imageId: cloudinaryImageId,
+                costForTwo: costForTwo,
+                cuisine: cuisines[0]
+            };
+        });
+        console.log(streamlinedRestaurants);
+
     }
 
     // Will be called after the component is rendered
