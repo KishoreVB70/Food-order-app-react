@@ -49,6 +49,10 @@ const Body = () => {
         fetchRestaurants();
     }, []);
 
+    if (restData.length === 0) {
+        return (<h1>Loading screen</h1>);
+    }
+
     return (
         <div className="body" >
             <div className="filter">
