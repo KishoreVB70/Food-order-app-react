@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import Body from "./components/Body";
 import AboutUs from "./components/AboutUs";
 import Contact from "./components/Contact.jsx";
+import Error from "./components/Error.jsx";
 
 // Utils
 import { appLogo } from "../utils/constants.js"
@@ -25,6 +26,7 @@ const appRouter = createBrowserRouter([
     {
         path: "/",
         element: <AppLayout />,
+        errorElement: <Error />
     },
     {
         path: "/about",
