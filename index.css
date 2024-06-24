@@ -67,14 +67,15 @@ li {
     background-color: black;
 }
 
-.res-container {
+.res-container, .shimmer-container {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 20px;
 }
 
-.res-card {
+
+.res-card, .shimmer-card {
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -85,7 +86,7 @@ li {
    background-color: rgb(243, 243, 243);
 }
 
-.res-card:hover {
+.res-card:hover, .shimmer-card:hover {
    border: 1px solid black;
    cursor: pointer;
 }

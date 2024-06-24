@@ -1,8 +1,12 @@
-import ResCard from "./ResCard";
+// Hooks
 import { useState, useEffect } from "react";
+
+// Components
+import ResCard from "./ResCard";
+import Shimmer from "./Shimmer";
+
+//Utils
 import { swiggyAPI } from "../../utils/constants"
-
-
 
 const Body = () => {
     // State variable
@@ -50,7 +54,7 @@ const Body = () => {
     }, []);
 
     if (restData.length === 0) {
-        return (<h1>Loading screen</h1>);
+        return (<Shimmer />);
     }
 
     return (
