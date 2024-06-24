@@ -11,14 +11,15 @@ import { swiggyAPI } from "../../utils/constants"
 const Body = () => {
     // State variable
     const [restData, setResData] = useState([]);
+    const [filteredRestData, setFilteredRestData] = useState([]);
     const [filterbtn, setFilterBtn] = useState("Top rated restaurants");
     const [searchInput, setSearchInput] = useState("");
 
     const filterRated = () => {
         if ( filterbtn === "Show All" ) {
-            setResData( (data) => restData);
+            setFilteredRestData(restData);
         } else {
-            setResData( data => data.filter(res => res.rating > 4.3));
+            setFilteredRestData( data => restData.filter(res => res.rating > 4.3));
         }
 
         setFilterBtn( (btn) => {
@@ -30,12 +31,16 @@ const Body = () => {
     } 
 
     const search = () => {
-        console.log(searchInput);;
-        setResData(res => res.filter( (data) => {
-            const {area, resName} = data;
-           return area.includes(searchInput) || resName.includes(searchInput);
-        }))
-            
+        const filteredData = restData.filter(data => {
+            let {area, resName} = data;
+            area = area.toUpperCase();
+            resName = resName.toUpperCase();
+            const searcip = searchInput.toUpperCase();
+
+            return area.includes(searcip) 
+                || resName.toUpperCase().includes(searcip);
+        })
+        setFilteredRestData(filteredData);
     }
 
     const fetchRestaurants = async() => {
@@ -56,6 +61,7 @@ const Body = () => {
             };
         });
         setResData(() => streamlinedRestaurants);
+        setFilteredRestData(() => streamlinedRestaurants);
     }
 
     // Empty dependency array will be called only when page is refreshed
@@ -78,12 +84,12 @@ const Body = () => {
                 <button className="rated-btn" onClick={filterRated} >{filterbtn}</button>
             </div>
 
-            {restData.length === 0 
+            {filteredRestData.length === 0 
                 ? <Shimmer />
                 : 
                 <div className="res-container">
                     {
-                        restData.map(rest => (<ResCard key={rest.resId} data={rest} />))
+                        filteredRestData.map(rest => (<ResCard key={rest.resId} data={rest} />))
                     }
                 </div>
             }
