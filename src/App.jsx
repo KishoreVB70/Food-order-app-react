@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Body from "./components/Body";
 import AboutUs from "./components/AboutUs";
+import Contact from "./components/Contact.jsx";
 
 // Utils
 import { appLogo } from "../utils/constants.js"
@@ -28,6 +29,10 @@ const appRouter = createBrowserRouter([
     {
         path: "/about",
         element: <AboutUs />
+    },
+    {
+        path: "/contact",
+        element: <Contact />
     }
 
 ])
