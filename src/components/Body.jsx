@@ -48,9 +48,11 @@ const Body = () => {
         setResData(() => streamlinedRestaurants);
     }
 
-    // Will be called after the component is rendered
+    // Empty dependency array will be called only when page is refreshed
+    // Will not be called for state change rerendering
     useEffect(() => {
         fetchRestaurants();
+        setFilterBtn("Top rated restaurants");
     }, []);
 
     return (
