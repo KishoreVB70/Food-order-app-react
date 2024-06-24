@@ -12,6 +12,7 @@ const Body = () => {
     // State variable
     const [restData, setResData] = useState([]);
     const [filterbtn, setFilterBtn] = useState("Top rated restaurants");
+    const [searchInput, setSearchInput] = useState("");
 
     const filterRated = () => {
         if ( filterbtn === "Show All" ) {
@@ -27,6 +28,11 @@ const Body = () => {
             return "Show All";
         })
     } 
+
+    const search = () => {
+        console.log("Searching");
+        restData.filter(data => data.resName === searchInput);
+    }
 
     const fetchRestaurants = async() => {
         const data = await fetch(swiggyAPI);
@@ -59,7 +65,7 @@ const Body = () => {
         <div className="body" >
             <div className="search">
                 <input type="text" className="search-input" />
-                <button className="search-input"  >Search</button>
+                <button className="search-input" onClick={search}  >Search</button>
             </div>
             <div className="filter">
                 <button className="rated-btn" onClick={filterRated} >{filterbtn}</button>
