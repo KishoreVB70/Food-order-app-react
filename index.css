@@ -89,6 +89,7 @@ li > *:hover {
    background-color: rgb(243, 243, 243);
    height: 420px;
 }
+
 .res-card:hover, .shimmer-card:hover {
    border: 1px solid black;
    cursor: pointer;
@@ -97,6 +98,11 @@ li > *:hover {
 .res-card > * {
     margin: 3px;
     padding: 2px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }
 
 .res-img {
