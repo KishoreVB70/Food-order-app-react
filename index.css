@@ -58,7 +58,6 @@ li > *:hover {
 /* Body styling */
 .body {
     margin: 10px;
-    height: 75vh;
 }
 
 .rated-btn {
@@ -86,11 +85,10 @@ li > *:hover {
    margin-right: 5px;
    margin-bottom: 5px;
    width: 15vw;
-   height: 32vh;
    padding: 5px;
    background-color: rgb(243, 243, 243);
+   height: 420px;
 }
-
 .res-card:hover, .shimmer-card:hover {
    border: 1px solid black;
    cursor: pointer;
