@@ -3,13 +3,15 @@ import { useEffect, useState } from 'react'
 import { swiggyMenuAPI } from '../../utils/constants'
 import MenuCard from "./MenuCard"
 import Shimmer from './Shimmer'
+import { useParams } from 'react-router-dom'
 
 const Restaurant = (props) => {
     const [restaurant, setRestaurant] = useState({})
     const [menu, setMenu] = useState([])
+    const {resID} = useParams();
 
     const fetchMenu = async() => {
-        const menu = await fetch(swiggyMenuAPI);
+        const menu = await fetch(swiggyMenuAPI + resID);
         const data = await menu.json();
         
         const restData = data?.data?.cards[2]?.card?.card?.info;
