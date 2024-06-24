@@ -30,8 +30,8 @@ const Body = () => {
     } 
 
     const search = () => {
-        console.log("Searching");
-        restData.filter(data => data.resName === searchInput);
+        console.log(searchInput);;
+        setResData(data => data.filter(dt => dt.resName.includes(searchInput)))
     }
 
     const fetchRestaurants = async() => {
@@ -64,7 +64,10 @@ const Body = () => {
     return (
         <div className="body" >
             <div className="search">
-                <input type="text" className="search-input" />
+                <input type="text" className="search-input" 
+                    value={searchInput} 
+                    onChange={(e) => setSearchInput(e.target.value)}  
+                />
                 <button className="search-input" onClick={search}  >Search</button>
             </div>
             <div className="filter">
