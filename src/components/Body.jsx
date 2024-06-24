@@ -53,8 +53,8 @@ const Body = () => {
         const jsonData = await data.json();
         // Optional chaining
         const restaurants = 
-            jsonData.data?.cards[4]?.card?.card?
-                .gridElements?.infoWithStyle?.restaurants;
+            jsonData.data?.cards[4]?.card?.card?.
+            gridElements?.infoWithStyle?.restaurants;
         
         const streamlinedRestaurants = restaurants.map((res) => {
             const {name, id, areaName, avgRating, cloudinaryImageId, costForTwo, cuisines} = res.info;
