@@ -12,15 +12,15 @@ const Restaurant = (props) => {
         const menu = await fetch(swiggyMenuAPI);
         const data = await menu.json();
         
-        const restData = data.data.cards[2].card.card.info
+        const restData = data?.data?.cards[2]?.card?.card?.info;
         setRestaurant(restData);
 
 
         console.log(restData);
         const menuItems = (
-            data.data.cards[4].groupedCard.
-            cardGroupMap.REGULAR.cards[2].
-            card.card.itemCards
+            data?.data?.cards[4]?.groupedCard?.
+            cardGroupMap?.REGULAR?.cards[2]?.
+            card?.card?.itemCards
         );
         const filteredMenuItems = menuItems.map(item => {
             return item.card.info;
