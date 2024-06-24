@@ -32,7 +32,12 @@ li {
     margin: 5px;
 }
 
-li:hover {
+li > * {
+    text-decoration: none;
+    color: black;
+}
+
+li > *:hover {
     cursor: pointer;
     color: orange;
 }
