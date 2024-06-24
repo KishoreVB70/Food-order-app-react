@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { swiggyMenuAPI } from '../../utils/constants'
+import MenuCard from "./MenuCard"
 
 const Restaurant = (props) => {
     const [restaurant, setRestaurant] = useState({})
@@ -34,9 +35,12 @@ const Restaurant = (props) => {
 
   return (
     <div>
-        <h1>{restaurant.name}</h1>
-        <h1>{restaurant.areaName}</h1>
-        <h1>{restaurant.cuisines}</h1>
+        <h1>Restaurant: {restaurant.name}</h1>
+        <h1>Area: {restaurant.areaName}</h1>
+        <h1>Cuisines: {restaurant.cuisines}</h1>
+        <div className="res-container">
+            {menu.map(e => <MenuCard key={e.id} data={e} />)}
+        </div>
     </div>
   )
 }
