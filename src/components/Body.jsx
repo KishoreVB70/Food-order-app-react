@@ -12,11 +12,11 @@ const Body = () => {
     // State variable
     const [restData, setResData] = useState([]);
     const [filteredRestData, setFilteredRestData] = useState([]);
-    const [filterbtn, setFilterBtn] = useState("Top rated restaurants");
+    const [filterBtn, setFilterBtn] = useState("Top rated restaurants");
     const [searchInput, setSearchInput] = useState("");
 
     const filterRated = () => {
-        if ( filterbtn === "Show All" ) {
+        if ( filterBtn === "Show All" ) {
             setFilteredRestData(restData);
         } else {
             setFilteredRestData( data => restData.filter(res => res.rating > 4.3));
@@ -40,6 +40,11 @@ const Body = () => {
             return area.includes(searcip) 
                 || resName.toUpperCase().includes(searcip);
         })
+
+        if(filteredData.length == 0) {
+            // Render not found guddubaye
+            setFilterBtn("Show All");
+        }
         setFilteredRestData(filteredData);
     }
 
@@ -47,7 +52,10 @@ const Body = () => {
         const data = await fetch(swiggyAPI);
         const jsonData = await data.json();
         // Optional chaining
-        const restaurants = jsonData.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+        const restaurants = 
+            jsonData.data?.cards[4]?.card?.card?
+                .gridElements?.infoWithStyle?.restaurants;
+        
         const streamlinedRestaurants = restaurants.map((res) => {
             const {name, id, areaName, avgRating, cloudinaryImageId, costForTwo, cuisines} = res.info;
             return {
@@ -81,17 +89,22 @@ const Body = () => {
                 <button className="search-input" onClick={search}  >Search</button>
             </div>
             <div className="filter">
-                <button className="rated-btn" onClick={filterRated} >{filterbtn}</button>
+                <button className="rated-btn" onClick={filterRated} >{filterBtn}</button>
             </div>
 
-            {filteredRestData.length === 0 
+
+
+            {restData.length === 0 
                 ? <Shimmer />
-                : 
-                <div className="res-container">
-                    {
-                        filteredRestData.map(rest => (<ResCard key={rest.resId} data={rest} />))
-                    }
-                </div>
+                :
+                filteredRestData. length === 0
+                    ? <h1>No data found</h1>
+                    :
+                    <div className="res-container">
+                        {
+                            filteredRestData.map(rest => (<ResCard key={rest.resId} data={rest} />))
+                        }
+                    </div>
             }
         </div>
     )
