@@ -9,9 +9,11 @@ import Body from "./components/Body";
 import AboutUs from "./components/AboutUs";
 import Contact from "./components/Contact.jsx";
 import Error from "./components/Error.jsx";
+import Restaurant from "./components/Restaurant.jsx";
 
 // Utils
 import { appLogo } from "../utils/constants.js"
+import Restaurant from "./components/Restaurant.jsx";
 
 // APP
 const AppLayout = () => (
@@ -39,6 +41,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact />
+            },
+            {
+                path: "/restaurant/:resID",
+                element: <Restaurant />
             }
         ]
     },

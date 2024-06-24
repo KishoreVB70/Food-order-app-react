@@ -7,6 +7,7 @@ import Shimmer from "./Shimmer";
 
 //Utils
 import { swiggyAPI } from "../../utils/constants"
+import { Link } from "react-router-dom";
 
 const Body = () => {
     // State variable
@@ -102,7 +103,12 @@ const Body = () => {
                     :
                     <div className="res-container">
                         {
-                            filteredRestData.map(rest => (<ResCard key={rest.resId} data={rest} />))
+                            filteredRestData.map(rest => (
+                                <Link to={"/restaurant/"+rest.resId} >
+                                    <ResCard key={rest.resId} data={rest} />
+                                </Link>
+                                
+                        ))
                         }
                     </div>
             }
