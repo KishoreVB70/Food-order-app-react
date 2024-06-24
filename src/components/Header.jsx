@@ -6,9 +6,7 @@ const Header = ({appLogo}) => {
     const [login, setLogin] = useState("Login");
 
     const handleLogin = () => {
-        login==="Login"
-            ?setLogin("Logout")
-            :setLogin("Login")
+        setLogin(data => data==="Login"?"Logout":"Login");
     }
 
     return (
