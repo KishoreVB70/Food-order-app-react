@@ -108,7 +108,7 @@ const Body = () => {
                                     <ResCard key={rest.resId} data={rest} />
                                 </Link>
                                 
-                        ))
+                            ))
                         }
                     </div>
             }
