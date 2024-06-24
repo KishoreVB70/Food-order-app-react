@@ -9,8 +9,6 @@ const ResCard = ({data}) =>  {
             <h4>Rating: {rating}</h4>  
             <h4>{area}</h4>
             <p>{cuisine}</p>
-            <p>20 Km</p>
-            <p>45 mins</p>
             <p>{costForTwo}</p>
         </div>
     )
