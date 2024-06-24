@@ -8,6 +8,7 @@ export const appLogo = "https://imgs.search.brave.com/l0684uJjP2-PEeXdGv36QCfwES
 
 export const swiggyAPI = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=11.0168445&lng=76.9558321&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 
-export const swiggyCloudinaryImageBase = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"
+export const swiggyCloudinaryImageBase = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
+export const swiggyMenuAPI = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=11.0168445&lng=76.9558321&restaurantId=604273&catalog_qa=undefined&submitAction=ENTER";
 
 export default resData;
