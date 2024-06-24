@@ -62,6 +62,8 @@ const Body = () => {
             <div className="filter">
                 <button className="rated-btn" onClick={filterRated} >{filterbtn}</button>
             </div>
+
+            {/* {restData.length === 0: (<Shimmer />)} */}
             <div className="res-container">
                 {
                     restData.map(rest => (<ResCard key={rest.resId} data={rest} />))
