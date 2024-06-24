@@ -5,3 +5,4 @@ const AboutUs = () => {
         </div>
     )
 }
+export default AboutUs;
