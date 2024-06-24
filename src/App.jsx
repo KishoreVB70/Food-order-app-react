@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
 
 // Components
 import Header from "./components/Header";
@@ -17,7 +17,7 @@ import { appLogo } from "../utils/constants.js"
 const AppLayout = () => (
     <div className="App">
         <Header appLogo={appLogo} />
-        <Body />
+        < Outlet />
         <Footer/>
     </div>
 )
@@ -26,16 +26,22 @@ const appRouter = createBrowserRouter([
     {
         path: "/",
         element: <AppLayout />,
-        errorElement: <Error />
+        errorElement: <Error />,
+        children: [
+            {
+                path: "/",
+                element: <Body/>
+            },
+            {
+                path: "/about",
+                element: <AboutUs />
+            },
+            {
+                path: "/contact",
+                element: <Contact />
+            }
+        ]
     },
-    {
-        path: "/about",
-        element: <AboutUs />
-    },
-    {
-        path: "/contact",
-        element: <Contact />
-    }
 
 ])
 
