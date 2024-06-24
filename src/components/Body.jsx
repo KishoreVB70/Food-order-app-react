@@ -57,6 +57,10 @@ const Body = () => {
 
     return (
         <div className="body" >
+            <div className="search">
+                <input type="text" className="search-input" />
+                <button className="search-input"  >Search</button>
+            </div>
             <div className="filter">
                 <button className="rated-btn" onClick={filterRated} >{filterbtn}</button>
             </div>
