@@ -31,7 +31,11 @@ const Body = () => {
 
     const search = () => {
         console.log(searchInput);;
-        setResData(data => data.filter(dt => dt.resName.includes(searchInput)))
+        setResData(res => res.filter( (data) => {
+            const {area, resName} = data;
+           return area.includes(searchInput) || resName.includes(searchInput);
+        }))
+            
     }
 
     const fetchRestaurants = async() => {
