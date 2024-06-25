@@ -5,7 +5,7 @@ const useRestaurant = () => {
 
     useEffect(() => {
         fetchRestaurant();
-    })
+    }, [])
 
     const fetchRestaurant = async() => {
         try {
