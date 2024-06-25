@@ -13,10 +13,17 @@ class UserClass extends React.Component {
         const {count, bot} = this.state;
         const {name} = this.props;
 
+        const increment = () => {
+            this.setState({
+                count: this.state.count+1
+            });
+        }
+
         return (
             <div className='user-card' >
                 <h1>Name: Show down {name} </h1>
                 <h1>Location: Indiana Pacers {count}</h1>
+                <button onClick={increment} >Increase count</button>
                 <h1>Contact: Twitter {bot}</h1>
             </div>
         )

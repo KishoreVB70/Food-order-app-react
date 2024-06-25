@@ -6,7 +6,6 @@ const AboutUs = () => {
         <div className="aboutus">
             <h1>We are Swiggy</h1>
             <h1>Here are our members:</h1>
-            <UserCard name="function" />
             <UserClass name="Class" />
         </div>
     )
