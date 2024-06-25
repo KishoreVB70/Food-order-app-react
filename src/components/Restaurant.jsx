@@ -5,7 +5,7 @@ import MenuCard from "./MenuCard"
 import Shimmer from './Shimmer'
 import { useParams } from 'react-router-dom'
 
-const Restaurant = (props) => {
+const Restaurant = () => {
     const [restaurant, setRestaurant] = useState({})
     const [menu, setMenu] = useState([])
     const {resID} = useParams();
@@ -35,7 +35,7 @@ const Restaurant = (props) => {
             console.log(error);
         }
     }
-    
+
     useEffect(() => {
         fetchMenu();
     }, [])

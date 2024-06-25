@@ -20,34 +20,24 @@ class UserClass extends React.Component {
 
     render() {
         const {userData} = this.state
-        const {name, location, public_repos, followers } = userData;
+        const {name, location, public_repos, followers, avatar_url } = userData;
 
         // console.log(this.props.name + "User render");
 
         return (
-            <div className='user-card' >
-                <h1>Name:{name} </h1>
-                <h1>Location: {location}</h1>
-                <h1>Repos: {public_repos}</h1>
-                <h1>Followers: {followers}</h1>
-            </div>
-            // Object.keys(userData).length === 0
-            //     ?(
-            //         <div className='user-card' >
-            //             <h1>Name:</h1>
-            //             <h1>Location:</h1>
-            //             <h1>Contact:</h1>
-            //             <h1>Followers:</h1>
-            //         </div>
-            //     )
-            //     :(
-            //         <div className='user-card' >
-            //             <h1>Name:{name} </h1>
-            //             <h1>Location: {location}</h1>
-            //             <h1>Repos: {public_repos}</h1>
-            //             <h1>Followers: {followers}</h1>
-            //         </div>
-            //     )
+            Object.keys(userData).length === 0
+                ?(
+                    <div className='user-card' ></div>
+                )
+                :(
+                    <div className='user-card' >
+                        <img src={avatar_url} alt="Github avatar" className="logo" />
+                        <h1>Name:{name} </h1>
+                        <h1>Location: {location}</h1>
+                        <h1>Repos: {public_repos}</h1>
+                        <h1>Followers: {followers}</h1>
+                    </div>
+                )
         )
     }
 }
