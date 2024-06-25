@@ -11,26 +11,31 @@ const Restaurant = (props) => {
     const {resID} = useParams();
 
     const fetchMenu = async() => {
-        const menu = await fetch(swiggyMenuAPI + resID);
-        const data = await menu.json();
+        try{
+            const menu = await fetch(swiggyMenuAPI + resID);
+            const data = await menu.json();
+            const restData = data?.data?.cards[2]?.card?.card?.info;
         
-        const restData = data?.data?.cards[2]?.card?.card?.info;
-        setRestaurant(restData);
+            setRestaurant(restData);
+            console.log(restData);
+            
+            const menuItems = (
+                data?.data?.cards[4]?.groupedCard?.
+                cardGroupMap?.REGULAR?.cards[2]?.
+                card?.card?.itemCards
+            );
 
+            const filteredMenuItems = menuItems.map(item => {
+                return item.card.info;
+            })
 
-        console.log(restData);
-        const menuItems = (
-            data?.data?.cards[4]?.groupedCard?.
-            cardGroupMap?.REGULAR?.cards[2]?.
-            card?.card?.itemCards
-        );
-        const filteredMenuItems = menuItems.map(item => {
-            return item.card.info;
-        })
-        console.log(filteredMenuItems);
-        setMenu(filteredMenuItems);
-
+            console.log(filteredMenuItems);
+            setMenu(filteredMenuItems); 
+        } catch(error) {
+            console.log(error);
+        }
     }
+    
     useEffect(() => {
         fetchMenu();
     }, [])
