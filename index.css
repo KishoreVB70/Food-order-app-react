@@ -110,6 +110,20 @@ a {
     height: 50%;
 }
 
+/* Other components in place of body */
+
+.aboutus {
+    margin: 15px;
+}
+
+.user-card {
+    width: 400px;
+    height: 350px;
+    border: 1px solid black;
+    padding: 10px;
+}
+ 
+
 /* Footer stuffs*/
 .footer {
     display: flex;
