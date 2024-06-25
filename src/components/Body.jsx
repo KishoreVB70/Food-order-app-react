@@ -1,20 +1,26 @@
 // Hooks
-import { useState, useEffect } from "react";
+import { useState} from "react";
 
 // Components
 import ResCard from "./ResCard";
 import Shimmer from "./Shimmer";
 
 //Utils
-import { swiggyAPI } from "../../utils/constants"
 import { Link } from "react-router-dom";
+import useRestaurant from "../../hooks/useRestaurant";
 
 const Body = () => {
     // State variable
-    const [restData, setResData] = useState([]);
-    const [filteredRestData, setFilteredRestData] = useState([]);
+    const [filteredRestData, setFilteredRestData] = useState(null);
     const [filterBtn, setFilterBtn] = useState("Top rated restaurants");
     const [searchInput, setSearchInput] = useState("");
+
+    const restData = useRestaurant();
+
+    // For the first render
+    if (restData !== null && filteredRestData === null) {
+        setFilteredRestData(restData);
+    }
 
     const filterRated = () => {
         if ( filterBtn === "Show All" ) {
@@ -42,43 +48,10 @@ const Body = () => {
                 || resName.toUpperCase().includes(searcip);
         })
 
-        if(filteredData.length == 0) {
-            // Render not found guddubaye
-            setFilterBtn("Show All");
-        }
+        setFilterBtn("Show All");
+        
         setFilteredRestData(filteredData);
     }
-
-    const fetchRestaurants = async() => {
-        const data = await fetch(swiggyAPI);
-        const jsonData = await data.json();
-        // Optional chaining
-        const restaurants = 
-            jsonData.data?.cards[4]?.card?.card?.
-            gridElements?.infoWithStyle?.restaurants;
-        
-        const streamlinedRestaurants = restaurants.map((res) => {
-            const {name, id, areaName, avgRating, cloudinaryImageId, costForTwo, cuisines} = res.info;
-            return {
-                resId: id,
-                resName: name,
-                area: areaName,
-                rating: avgRating,
-                imageId: cloudinaryImageId,
-                costForTwo: costForTwo,
-                cuisine: cuisines[0]
-            };
-        });
-        setResData(() => streamlinedRestaurants);
-        setFilteredRestData(() => streamlinedRestaurants);
-    }
-
-    // Empty dependency array will be called only when page is refreshed
-    // Will not be called for state change rerendering
-    useEffect(() => {
-        fetchRestaurants();
-        setFilterBtn("Top rated restaurants");
-    }, []);
 
     return (
         <div className="body" >
@@ -87,7 +60,7 @@ const Body = () => {
                     value={searchInput} 
                     onChange={(e) => setSearchInput(e.target.value)}  
                 />
-                <button className="search-input" onClick={search}  >Search</button>
+                <button className="search-input" onClick={search} >Search</button>
             </div>
             <div className="filter">
                 <button className="rated-btn" onClick={filterRated} >{filterBtn}</button>
@@ -95,10 +68,10 @@ const Body = () => {
 
 
 
-            {restData.length === 0 
+            {restData === null 
                 ? <Shimmer />
                 :
-                filteredRestData. length === 0
+                filteredRestData === null
                     ? <h1>No data found</h1>
                     :
                     <div className="res-container">
