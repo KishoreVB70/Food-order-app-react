@@ -23,7 +23,6 @@ const Header = ({appLogo}) => {
                 <img  className="logo" src={appLogo} />
             </div>
             <div className="nav-items" >
-                <div className="online-status"style={{backgroundColor: bg}} ></div>
                 <ul>
                     <li>
                          <Link to={"/"}>Home</Link>
@@ -31,11 +30,16 @@ const Header = ({appLogo}) => {
                     <li>
                         <Link to={"/about"}>AboutUs</Link>
                     </li>
+                    <li>
+                        <Link to={"/grocery"}>Grocery App</Link>
+                    </li>
                     <li>Help</li>
                     <li>Cart</li>
                     
                     <button onClick={handleLogin} className="login-btn" >{login}</button>
                 </ul>
+                <div className="online-status"style={{backgroundColor: bg}}></div>
+
             </div>
         </div>
     ) 
