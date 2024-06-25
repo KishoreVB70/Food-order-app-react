@@ -1,5 +1,7 @@
 // Hooks
 import { useState} from "react";
+import useRestaurant from "../../hooks/useRestaurant";
+import useOnlineStatus from "../../hooks/useOnlineStatus";
 
 // Components
 import ResCard from "./ResCard";
@@ -7,7 +9,7 @@ import Shimmer from "./Shimmer";
 
 //Utils
 import { Link } from "react-router-dom";
-import useRestaurant from "../../hooks/useRestaurant";
+
 
 const Body = () => {
     // State variable
@@ -16,6 +18,11 @@ const Body = () => {
     const [searchInput, setSearchInput] = useState("");
 
     const restData = useRestaurant();
+    const onlineStatus = useOnlineStatus();
+
+    if (onlineStatus === false) {
+        return <h1>You are offline, please check your connectivity</h1>
+    }
 
     // For the first render
     if (restData !== null && filteredRestData === null) {
