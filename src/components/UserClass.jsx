@@ -4,28 +4,50 @@ class UserClass extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            count: 0,
-            bot: "Moto"
+            userData: {}
         }
+        // console.log(this.props.name + "User constructor");
+    }
+
+    async componentDidMount() {
+        const _data = await fetch("https://api.github.com/users/kishorevb70");
+        const data = await _data.json();
+        this.setState({
+            userData: data
+        })
+        console.log(data);
     }
 
     render() {
-        const {count, bot} = this.state;
-        const {name} = this.props;
+        const {userData} = this.state
+        const {name, location, public_repos, followers } = userData;
 
-        const increment = () => {
-            this.setState({
-                count: this.state.count+1
-            });
-        }
+        // console.log(this.props.name + "User render");
 
         return (
             <div className='user-card' >
-                <h1>Name: Show down {name} </h1>
-                <h1>Location: Indiana Pacers {count}</h1>
-                <button onClick={increment} >Increase count</button>
-                <h1>Contact: Twitter {bot}</h1>
+                <h1>Name:{name} </h1>
+                <h1>Location: {location}</h1>
+                <h1>Repos: {public_repos}</h1>
+                <h1>Followers: {followers}</h1>
             </div>
+            // Object.keys(userData).length === 0
+            //     ?(
+            //         <div className='user-card' >
+            //             <h1>Name:</h1>
+            //             <h1>Location:</h1>
+            //             <h1>Contact:</h1>
+            //             <h1>Followers:</h1>
+            //         </div>
+            //     )
+            //     :(
+            //         <div className='user-card' >
+            //             <h1>Name:{name} </h1>
+            //             <h1>Location: {location}</h1>
+            //             <h1>Repos: {public_repos}</h1>
+            //             <h1>Followers: {followers}</h1>
+            //         </div>
+            //     )
         )
     }
 }
