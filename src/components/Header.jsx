@@ -1,9 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../../hooks/useOnlineStatus";
 const Header = ({appLogo}) => { 
 
     //State variable
     const [login, setLogin] = useState("Login");
+    const [bg, setBg] = useState("green");
+
+    const onlineStatus = useOnlineStatus();
+
+    useEffect(() => {
+        onlineStatus===true?setBg("green"):setBg("red");
+    }, [onlineStatus])
 
     const handleLogin = () => {
         setLogin(data => data==="Login"?"Logout":"Login");
@@ -15,7 +23,7 @@ const Header = ({appLogo}) => {
                 <img  className="logo" src={appLogo} />
             </div>
             <div className="nav-items" >
-                <div className="online-status"></div>
+                <div className="online-status"style={{backgroundColor: bg}} ></div>
                 <ul>
                     <li>
                          <Link to={"/"}>Home</Link>
