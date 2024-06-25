@@ -15,6 +15,7 @@ const Header = ({appLogo}) => {
                 <img  className="logo" src={appLogo} />
             </div>
             <div className="nav-items" >
+                <div className="online-status"></div>
                 <ul>
                     <li>
                          <Link to={"/"}>Home</Link>

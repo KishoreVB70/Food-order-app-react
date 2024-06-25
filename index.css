@@ -19,6 +19,13 @@
     height: 90px;
 }
 
+.online-status {
+    height: 30px;
+    width: 30px;
+    background-color: green;
+    border-radius: 100%;
+}
+
 ul {
     display: flex;
     justify-content: space-between;
