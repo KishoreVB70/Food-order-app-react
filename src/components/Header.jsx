@@ -18,7 +18,7 @@ const Header = ({appLogo}) => {
     }
 
     return (
-        <div className="flex p-2 m-2 justify-between border-blue-950 border " >
+        <div className="flex p-2 m-2 justify-between border-blue-950 border shadow-md " >
             <div className="logo-container">
                 <Link to={"/"} >
                     <img  className="w-20" src={appLogo} /> 
