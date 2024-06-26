@@ -77,7 +77,7 @@ const Body = () => {
                 filteredRestData === null
                     ? <h1>No data found</h1>
                     :
-                    <div className="flex flex-wrap border-black border-2 p-2 my-2">
+                    <div className="flex flex-wrap p-2 my-2 justify-between">
                         {
                             filteredRestData.map(rest => (
                                 <Link key={rest.resId} to={"restaurant/"+rest.resId} >
