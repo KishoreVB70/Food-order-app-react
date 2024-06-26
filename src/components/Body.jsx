@@ -61,19 +61,15 @@ const Body = () => {
     }
 
     return (
-        <div className="body" >
+        <div className="flex flex-col m-2 p-2" >
             <div className="search">
-                <input type="text" className="search-input" 
+                <input type="text" className="border border-gray-400" 
                     value={searchInput} 
                     onChange={(e) => setSearchInput(e.target.value)}  
                 />
-                <button className="search-input" onClick={search} >Search</button>
+                <button className=" hover:text-white  hover:bg-purple-700 mx-2 px-2 border border-purple-500 text-purple-500 " onClick={search} >Search</button>
+                <button className="hover:text-white  hover:bg-purple-700 mx-2 px-2 border border-purple-500 text-purple-500 rounded-lg" onClick={filterRated} >{filterBtn}</button>
             </div>
-            <div className="filter">
-                <button className="rated-btn" onClick={filterRated} >{filterBtn}</button>
-            </div>
-
-
 
             {restData === null 
                 ? <Shimmer />
@@ -81,7 +77,7 @@ const Body = () => {
                 filteredRestData === null
                     ? <h1>No data found</h1>
                     :
-                    <div className="res-container">
+                    <div className="flex flex-wrap border-black border-2 p-2 my-2">
                         {
                             filteredRestData.map(rest => (
                                 <Link key={rest.resId} to={"restaurant/"+rest.resId} >
