@@ -38,10 +38,9 @@ const Header = ({appLogo}) => {
                     <li className="mx-2 hover:text-icon2 flex items-center">Help</li>
                     <li className="mx-2 hover:text-icon2 flex items-center">Cart</li>
                     
-                    <button onClick={handleLogin} className="mx-2 w-20 h-10 bg-transparent hover:bg-icon text-icon hover:text-white py-2 px-4 border border-icon rounded text-center"  >{login}</button>
+                    <button onClick={handleLogin} className="mx-2 w-20 h-10 bg-transparent hover:bg-icon text-icon hover:text-white py-2 px-4 border border-icon rounded text-sm"  >{login}</button>
                 </ul>
-                <div className="online-status"style={{backgroundColor: bg}}></div>
-            </div>
+            </div>  
         </div>
     ) 
 }
