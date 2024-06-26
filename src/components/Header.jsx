@@ -26,19 +26,19 @@ const Header = ({appLogo}) => {
             </div>
             <div className="flex items-center" >
                 <ul className="flex p-2" >
-                    <li className="mx-2 hover:text-purple-500 flex items-center" >
+                    <li className="mx-2 hover:text-icon2 flex items-center" >
                          <Link to={"/"}>Home</Link>
                     </li>
-                    <li className="mx-2 hover:text-purple-500 flex items-center">
+                    <li className="mx-2 hover:text-icon2 flex items-center">
                         <Link to={"/about"}>AboutUs</Link>
                     </li>
-                    <li className="mx-2 hover:text-purple-500 flex items-center">
+                    <li className="mx-2 hover:text-icon2 flex items-center">
                         <Link to={"/grocery"}>Grocery App</Link>
                     </li>
-                    <li className="mx-2 hover:text-purple-500 flex items-center">Help</li>
-                    <li className="mx-2 hover:text-purple-500 flex items-center">Cart</li>
+                    <li className="mx-2 hover:text-icon2 flex items-center">Help</li>
+                    <li className="mx-2 hover:text-icon2 flex items-center">Cart</li>
                     
-                    <button onClick={handleLogin} className="mx-2 w-20 h-10 bg-transparent hover:bg-purple-700 text-purple-700 hover:text-white py-2 px-4 border border-purple-500 rounded text-center"  >{login}</button>
+                    <button onClick={handleLogin} className="mx-2 w-20 h-10 bg-transparent hover:bg-icon text-icon hover:text-white py-2 px-4 border border-icon rounded text-center"  >{login}</button>
                 </ul>
                 <div className="online-status"style={{backgroundColor: bg}}></div>
             </div>

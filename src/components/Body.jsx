@@ -63,12 +63,12 @@ const Body = () => {
     return (
         <div className="flex flex-col m-2 p-2" >
             <div className="mx-4">
-                <input type="text" className=" p-1 border border-gray-400" 
+                <input type="text" className=" p-1 border border-icon" 
                     value={searchInput} 
                     onChange={(e) => setSearchInput(e.target.value)}  
                 />
-                <button className=" hover:text-white py-1 hover:bg-purple-700 mx-2 px-2 border border-purple-700 text-purple-700 " onClick={search} >Search</button>
-                <button className="hover:text-white  hover:bg-purple-700 mx-2 px-2 border border-purple-700 text-purple-700 rounded-lg" onClick={filterRated} >{filterBtn}</button>
+                <button className=" hover:text-white py-1 hover:bg-icon mx-2 px-2 border border-icon text-icon " onClick={search} >Search</button>
+                <button className="hover:text-white  hover:bg-icon mx-2 px-2 border border-icon text-icon rounded-lg" onClick={filterRated} >{filterBtn}</button>
             </div>
 
             {restData === null 

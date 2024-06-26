@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'icon': '#EC008D',
+        'icon': '#343F97',
+        'icon2': "#EC008D"
       },
     },
   },
