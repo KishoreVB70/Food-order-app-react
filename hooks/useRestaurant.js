@@ -16,13 +16,17 @@ const useRestaurant = () => {
             const restaurants = 
                 jsonData.data?.cards[4]?.card?.card?.
                 gridElements?.infoWithStyle?.restaurants;
+
+            console.log(restaurants);
+
             
-            const streamlinedRestaurants = restaurants.map((res) => {
+            const streamlinedRestaurants = restaurants.map((res, index) => {
                 const {
                     name, id, areaName, avgRating, 
                     cloudinaryImageId, costForTwo, cuisines
                 } = res.info;
-    
+
+                const promo = index % 2 ===0?true:false
                 return {
                     resId: id,
                     resName: name,
@@ -30,11 +34,13 @@ const useRestaurant = () => {
                     rating: avgRating,
                     imageId: cloudinaryImageId,
                     costForTwo: costForTwo,
-                    cuisine: cuisines[0]
+                    cuisine: cuisines[0],
+                    promoted: promo
                 };
             });
-            
+
             setResData(() => streamlinedRestaurants);
+            console.log(streamlinedRestaurants);
         }catch(error) {
             console.log(error);
         }
