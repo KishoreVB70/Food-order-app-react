@@ -26,7 +26,7 @@ const useRestaurant = () => {
                     cloudinaryImageId, costForTwo, cuisines
                 } = res.info;
 
-                const promo = index % 2 ===0?true:false
+                const promo = index % 3 ===0?true:false
                 return {
                     resId: id,
                     resName: name,

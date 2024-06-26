@@ -4,7 +4,7 @@ import useRestaurant from "../../hooks/useRestaurant";
 import useOnlineStatus from "../../hooks/useOnlineStatus";
 
 // Components
-import ResCard from "./ResCard";
+import ResCard, {withPromoted} from "./ResCard";
 import Shimmer from "./Shimmer";
 
 //Utils
@@ -28,6 +28,8 @@ const Body = () => {
     if (restData !== null && filteredRestData === null) {
         setFilteredRestData(restData);
     }
+
+    const PromotedRestaurant = withPromoted(ResCard);
 
     const filterRated = () => {
         if ( filterBtn === "Show All" ) {
@@ -81,7 +83,10 @@ const Body = () => {
                         {
                             filteredRestData.map(rest => (
                                 <Link key={rest.resId} to={"restaurant/"+rest.resId} >
-                                    <ResCard data={rest} />                        
+                                    {rest.promoted
+                                    ?<PromotedRestaurant data={rest} />
+                                    :<ResCard data={rest} />
+                                    }                 
                                 </Link>
                             ))
                         }
