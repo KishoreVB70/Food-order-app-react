@@ -17,7 +17,7 @@ const useRestaurant = () => {
                 jsonData.data?.cards[4]?.card?.card?.
                 gridElements?.infoWithStyle?.restaurants;
 
-            console.log(restaurants);
+            // console.log(restaurants);
 
             
             const streamlinedRestaurants = restaurants.map((res, index) => {
@@ -36,11 +36,11 @@ const useRestaurant = () => {
                     costForTwo: costForTwo,
                     cuisine: cuisines[0],
                     promoted: promo
-                };
+                };  
             });
 
             setResData(() => streamlinedRestaurants);
-            console.log(streamlinedRestaurants);
+            // console.log(streamlinedRestaurants);
         }catch(error) {
             console.log(error);
         }

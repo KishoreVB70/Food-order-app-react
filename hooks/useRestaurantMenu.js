@@ -17,7 +17,6 @@ const useRestaurantMenu = (resID) => {
             const data = await menu.json();
             const restData = data?.data?.cards[2]?.card?.card?.info;
             setRestaurant(restData);
-            // console.log(restData);
 
             // Set all items
             const filteringTitle = data?.data?.cards[4]?.groupedCard?.
@@ -29,8 +28,8 @@ const useRestaurantMenu = (resID) => {
 
             const accordianHeader = filteringItemCategories.map(item => item.title);
             const accordianItems = filteringItemCategories.map(item => item.itemCards);
-            console.log(accordianItems);
-            console.log(accordianHeader);
+            // console.log(accordianItems);
+            // console.log(accordianHeader);
             setAccordianItems(accordianItems);
             setAccordianHeader(accordianHeader);
             

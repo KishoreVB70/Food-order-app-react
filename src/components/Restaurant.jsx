@@ -33,7 +33,7 @@ const Restaurant = () => {
         {accordianHeader === null
             ?<Shimmer />
             :
-            accordianItems.map((i, index) =>  <RestaurantAccordian key={index} title={accordianHeader[index]} cards={i} />)
+            accordianItems.map((i, index) =>  <RestaurantAccordian key={index} title={accordianHeader[index]} restaurantImage={restaurant.cloudinaryImageId} cards={i} />)
             
 
             // <div className="flex flex-wrap p-2 my-2 justify-between">
