@@ -1,6 +1,7 @@
 import React from 'react'
 import MenuCard from "./MenuCard"
 import Shimmer from './Shimmer'
+import RestaurantAccordian from './RestaurantAccordian'
 import { useParams } from 'react-router-dom'
 import useRestaurantMenu from '../../hooks/useRestaurantMenu';
 
@@ -10,7 +11,7 @@ import { swiggyCloudinaryImageBase } from '../../utils/constants';
 
 const Restaurant = () => {
     const {resID} = useParams();
-    const [restaurant, menu] = useRestaurantMenu(resID);
+    const [restaurant, menu, accordianHeader, accordianItems] = useRestaurantMenu(resID);
     
     return (
         <div className='flex flex-col m-2 p-2 items-center' >
@@ -21,7 +22,7 @@ const Restaurant = () => {
             </div>
             :
 
-            <div className='flex flex-col items-center p-2 m-2 h-96' >
+            <div className='flex flex-col items-center p-2 m-4 h-96' >
                 <h1 className='underline text-xl py-1' >{restaurant.name}</h1>
                 <img className="w-72 h-72 py-2 " src={swiggyCloudinaryImageBase + restaurant.cloudinaryImageId} />
 
@@ -29,12 +30,15 @@ const Restaurant = () => {
                 <h1 className= ' text-lg py-1' >{restaurant.cuisines[0] +", " + restaurant.cuisines[1]}</h1>
             </div>
             } 
-        {menu === null
+        {accordianHeader === null
             ?<Shimmer />
             :
-            <div className="flex flex-wrap p-2 my-2 justify-between">
-                {menu.map(e => <MenuCard key={e.id} data={e} />)}
-            </div>
+            accordianItems.map((i, index) =>  <RestaurantAccordian key={index} title={accordianHeader[index]} cards={i} />)
+            
+
+            // <div className="flex flex-wrap p-2 my-2 justify-between">
+            //     {menu.map(e => <MenuCard key={e.id} data={e} />)}
+            // </div>
              }
     </div>
   )
