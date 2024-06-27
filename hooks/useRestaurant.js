@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { swiggyAPI } from "../utils/constants";
+import { swiggyAPI } from "../src/utils/constants";
 const useRestaurant = () => {
     const [restData, setResData] = useState(null);
 

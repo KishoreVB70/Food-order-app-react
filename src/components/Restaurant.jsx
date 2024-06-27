@@ -6,14 +6,13 @@ import { useParams } from 'react-router-dom'
 import useRestaurantMenu from '../../hooks/useRestaurantMenu';
 
 
-import { swiggyCloudinaryImageBase } from '../../utils/constants';
-
+import { swiggyCloudinaryImageBase } from '../utils/constants';
 
 const Restaurant = () => {
     const {resID} = useParams();
     const [restaurant, menu, accordianHeader, accordianItems] = useRestaurantMenu(resID);
     
-    const [show, setShow] = useState(100);
+    const [show, setShow] = useState(null);
     
     return (
         <div className='flex flex-col m-2 p-2 items-center' >
@@ -40,7 +39,7 @@ const Restaurant = () => {
                     <RestaurantAccordian key={index} title={accordianHeader[index]}
                          restaurantImage={restaurant.cloudinaryImageId} cards={i}
                          show={index===show?true:false} 
-                         setShow={() => setShow(i => i===index?100:index)}/> 
+                         setShow={() => setShow(i => i===index?null:index)}/> 
                 )
             })
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { swiggyCloudinaryImageBase } from '../../utils/constants';
+import { swiggyCloudinaryImageBase } from '../utils/constants';
 
 const MenuCard = ({data}) => {
   const {name, imageId, ratings, defaultPrice, price} = data;

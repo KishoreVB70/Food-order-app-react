@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { swiggyMenuAPI } from "../utils/constants"
+import { swiggyMenuAPI } from "../src/utils/constants"
 const useRestaurantMenu = (resID) => {
     const [restaurant, setRestaurant] = useState(null)
     const [menu, setMenu] = useState(null)

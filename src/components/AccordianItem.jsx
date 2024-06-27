@@ -1,5 +1,5 @@
 import React from 'react'
-import { swiggyCloudinaryImageBase } from '../../utils/constants';
+import { swiggyCloudinaryImageBase } from '../utils/constants';
 
 
 function AccordianItem({card, restaurantImage}) {

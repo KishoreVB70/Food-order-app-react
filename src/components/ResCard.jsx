@@ -1,4 +1,4 @@
-import { swiggyCloudinaryImageBase } from "../../utils/constants";
+import { swiggyCloudinaryImageBase } from "../utils/constants";
 
 const ResCard = ({data}) =>  {
     const {resName, area, imageId, rating, cuisine, costForTwo } = data;
