@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from "react";
+import React, {lazy, Suspense, useEffect, useState} from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
 
@@ -20,14 +20,27 @@ import UserContext from "./utils/UserContext.js";
 // Lazy component
 const Grocery = lazy(() => import("./components/Grocery.jsx"));
 
+
+
+useEffect(() => setUserName("Kishore"));
+
+// Setting context
+
+
+
 // App component
-const AppLayout = () => (
-    <div className="App">
-        <Header />
-        <Outlet />
-        <Footer/>
-    </div>
+const AppLayout = () =>  {
+    //State variable
+    const [userName, setUserName] = useState(null);
+    
+    Return(
+        <div className="App">
+            <Header />
+            <Outlet />
+            <Footer/>
+        </div>
 )
+}
 
 // Router
 const appRouter = createBrowserRouter([
@@ -64,4 +77,3 @@ const appRouter = createBrowserRouter([
 //Render to root
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRouter} />);
-
