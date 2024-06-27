@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import MenuCard from "./MenuCard"
 import Shimmer from './Shimmer'
 import RestaurantAccordian from './RestaurantAccordian'
@@ -12,6 +12,8 @@ import { swiggyCloudinaryImageBase } from '../../utils/constants';
 const Restaurant = () => {
     const {resID} = useParams();
     const [restaurant, menu, accordianHeader, accordianItems] = useRestaurantMenu(resID);
+    
+    const [show, setShow] = useState(100);
     
     return (
         <div className='flex flex-col m-2 p-2 items-center' >
@@ -33,8 +35,14 @@ const Restaurant = () => {
         {accordianHeader === null
             ?<Shimmer />
             :
-            accordianItems.map((i, index) =>  <RestaurantAccordian key={index} title={accordianHeader[index]} restaurantImage={restaurant.cloudinaryImageId} cards={i} />)
-            
+            accordianItems.map((i, index) =>  {
+                return (
+                    <RestaurantAccordian key={index} title={accordianHeader[index]}
+                         restaurantImage={restaurant.cloudinaryImageId} cards={i}
+                         show={index===show?true:false} 
+                         setShow={() => setShow(i => i===index?100:index)}/> 
+                )
+            })
 
             // <div className="flex flex-wrap p-2 my-2 justify-between">
             //     {menu.map(e => <MenuCard key={e.id} data={e} />)}

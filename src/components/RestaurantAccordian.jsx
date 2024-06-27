@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import AccordianItem from './AccordianItem'
 
-function RestaurantAccordian({title, cards, restaurantImage}) {
-    const [show, setShow] = useState(false);
-
+function RestaurantAccordian({title, cards, restaurantImage, show, setShow}) {
     const handleClick = () => {
-        setShow(s => !s);
+        setShow();
     }
 
   return (
