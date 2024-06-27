@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "../../hooks/useOnlineStatus";
+import useOnlineStatus from "../hooks/useOnlineStatus";
 const Header = ({appLogo}) => { 
 
     //State variable

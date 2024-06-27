@@ -3,7 +3,7 @@ import MenuCard from "./MenuCard"
 import Shimmer from './Shimmer'
 import RestaurantAccordian from './RestaurantAccordian'
 import { useParams } from 'react-router-dom'
-import useRestaurantMenu from '../../hooks/useRestaurantMenu';
+import useRestaurantMenu from '../hooks/useRestaurantMenu';
 
 
 import { swiggyCloudinaryImageBase } from '../utils/constants';
