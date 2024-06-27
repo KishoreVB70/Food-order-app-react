@@ -8,24 +8,28 @@ import Footer from "./components/Footer";
 import Body from "./components/Body";
 import AboutUs from "./components/AboutUs";
 import Contact from "./components/Contact.jsx";
-import Error from "./components/Error.jsx";
 import Restaurant from "./components/Restaurant.jsx";
+import Error from "./components/Error.jsx";
 
 // Utils
-import { appLogo } from "../utils/constants.js"
 import Restaurant from "./components/Restaurant.jsx";
 
-// APP
+// Context
+import UserContext from "./utils/UserContext.js";
+
+// Lazy component
+const Grocery = lazy(() => import("./components/Grocery.jsx"));
+
+// App component
 const AppLayout = () => (
     <div className="App">
-        <Header appLogo={appLogo} />
-        < Outlet />
+        <Header />
+        <Outlet />
         <Footer/>
     </div>
 )
 
-const Grocery = lazy(() => import("./components/Grocery.jsx"));
-
+// Router
 const appRouter = createBrowserRouter([
     {
         path: "/",
@@ -57,6 +61,7 @@ const appRouter = createBrowserRouter([
 
 ])
 
+//Render to root
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRouter} />);
 

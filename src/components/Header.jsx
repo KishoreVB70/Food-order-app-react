@@ -1,8 +1,11 @@
 import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import UserContext from "../utils/UserContext"
+import UserContext from "../utils/UserContext";
 import useOnlineStatus from "../hooks/useOnlineStatus";
-const Header = ({appLogo}) => { 
+
+import { appLogo } from "../utils/constants";
+
+const Header = () => { 
 
     //State variable
     const [login, setLogin] = useState("Login");
