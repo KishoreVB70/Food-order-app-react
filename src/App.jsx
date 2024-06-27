@@ -15,32 +15,30 @@ import Error from "./components/Error.jsx";
 import Restaurant from "./components/Restaurant.jsx";
 
 // Context
-import UserContext from "./utils/UserContext.js";
+import UserContext from "./utils/UserContext.jsx";
 
 // Lazy component
 const Grocery = lazy(() => import("./components/Grocery.jsx"));
-
-
-
-useEffect(() => setUserName("Kishore"));
-
-// Setting context
-
-
 
 // App component
 const AppLayout = () =>  {
     //State variable
     const [userName, setUserName] = useState(null);
-    
-    Return(
+
+    useEffect(() => setUserName("Kishore"));
+
+    return(
         <div className="App">
-            <Header />
-            <Outlet />
-            <Footer/>
-        </div>
-)
+            <UserContext.Provider value={{ loggedUser: userName, setUserName }}>
+                <Header />
+                <Outlet />
+                <Footer/>
+            </UserContext.Provider>
+            </div>
+    )
 }
+
+
 
 // Router
 const appRouter = createBrowserRouter([

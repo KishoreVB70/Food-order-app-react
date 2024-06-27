@@ -1,7 +1,8 @@
 // Hooks
-import { useState} from "react";
-import useRestaurant from "../../hooks/useRestaurant";
-import useOnlineStatus from "../../hooks/useOnlineStatus";
+import { useState, useContext} from "react";
+
+import useRestaurant from "../hooks/useRestaurant";
+import useOnlineStatus from "../hooks/useOnlineStatus";
 
 // Components
 import ResCard, {withPromoted} from "./ResCard";
@@ -10,6 +11,8 @@ import Shimmer from "./Shimmer";
 //Utils
 import { Link } from "react-router-dom";
 
+//Context
+import UserContext from "../utils/UserContext.jsx";
 
 const Body = () => {
     // State variable
@@ -28,6 +31,9 @@ const Body = () => {
     if (restData !== null && filteredRestData === null) {
         setFilteredRestData(restData);
     }
+
+    // Context
+    const {setUserName, LoggedUser} = useContext(UserContext);
 
     const PromotedRestaurant = withPromoted(ResCard);
 
@@ -71,6 +77,12 @@ const Body = () => {
                 />
                 <button className=" hover:text-white py-1 hover:bg-icon mx-2 px-2 border border-icon text-icon " onClick={search} >Search</button>
                 <button className="hover:text-white  hover:bg-icon mx-2 px-2 border border-icon text-icon rounded-lg" onClick={filterRated} >{filterBtn}</button>
+                <input type="text" className=" p-1 border border-icon" 
+                    value={LoggedUser} 
+                    onChange={e => setUserName(e.target.value)}  
+                />
+                <button className=" hover:text-white py-1 hover:bg-icon mx-2 px-2 border border-icon text-icon " onClick={search} >Search</button>
+
             </div>
 
             {restData === null 
@@ -84,8 +96,8 @@ const Body = () => {
                             filteredRestData.map(rest => (
                                 <Link key={rest.resId} to={"restaurant/"+rest.resId} >
                                     {rest.promoted
-                                    ?<PromotedRestaurant data={rest} />
-                                    :<ResCard data={rest} />
+                                        ?<PromotedRestaurant data={rest} />
+                                        :<ResCard data={rest} />
                                     }                 
                                 </Link>
                             ))

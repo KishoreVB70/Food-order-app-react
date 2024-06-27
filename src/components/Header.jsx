@@ -20,7 +20,7 @@ const Header = () => {
 
     const handleLogin = () => {
         setLogin(data => data==="Login"?"Logout":"Login");
-    }
+    };
 
     return (
         <div className="flex p-2 m-2 justify-between border-blue-950 border shadow-md " >
@@ -48,7 +48,7 @@ const Header = () => {
                 </ul>
             </div>  
         </div>
-    ) 
+    );
 }
 
 export default Header;
