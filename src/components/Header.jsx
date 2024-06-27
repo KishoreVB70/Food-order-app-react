@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext"
 import useOnlineStatus from "../hooks/useOnlineStatus";
 const Header = ({appLogo}) => { 
 
@@ -7,6 +8,7 @@ const Header = ({appLogo}) => {
     const [login, setLogin] = useState("Login");
     const [bg, setBg] = useState("green");
 
+    const { loggedUser } = useContext(UserContext);
     const onlineStatus = useOnlineStatus();
 
     useEffect(() => {
@@ -37,6 +39,7 @@ const Header = ({appLogo}) => {
                     </li>
                     <li className="mx-2 hover:text-icon2 flex items-center">Help</li>
                     <li className="mx-2 hover:text-icon2 flex items-center">Cart</li>
+                    <li className="mx-2 flex items-center">{loggedUser}</li>
                     
                     <button onClick={handleLogin} className="mx-2 w-20 h-10 bg-transparent hover:bg-icon text-icon hover:text-white py-2 px-4 border border-icon rounded text-sm"  >{login}</button>
                 </ul>
