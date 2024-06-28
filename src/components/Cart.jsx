@@ -2,7 +2,8 @@ import React from 'react'
 
 // Redux
 import { useSelector } from 'react-redux'
-
+import { useDispatch } from 'react-redux';
+import { deleteCart } from "../redux/cartSlice";
 
 function CartItem( {item} ) {
     console.log(item);
@@ -18,9 +19,18 @@ function CartItem( {item} ) {
 
 function Cart() {
     const cartItems = useSelector(store => store.cartSlice.items);
+    const dispatch = useDispatch();
     console.log(cartItems);
+
+    const clearCartHandler = () => {
+        dispatch(deleteCart());
+    }
+
     return (
-        cartItems.map(item => < CartItem key={item.id} item={item} />)
+        <div className='items-center flex flex-col justify-center' >
+            <button onClick={clearCartHandler} className='bg-gray-100  p-2 m-2 hover:bg-transparent hover:bg-red-500 border border-black' >Clear cart</button>
+            {cartItems.map(item => < CartItem key={item.id} item={item} />)}
+        </div>
     )
 }
 
