@@ -19,8 +19,14 @@ function Cart() {
 
     return (
         <div className='items-center flex flex-col m-auto justify-center w-6/12 ' >
-            <button onClick={clearCartHandler} className='bg-gray-100  p-2 m-2 hover:bg-transparent hover:bg-red-500 border border-black' >Clear cart</button>
-            {cartItems.map(item => < AccordianItem key={item.card.info.id} card={item} restaurantImage={item.restaurantImage} />)}
+            {cartItems.length ===0
+                ?<h1>Cart is empty</h1>
+                :
+                <>
+                    <button onClick={clearCartHandler} className='bg-gray-100  p-2 m-2 hover:bg-transparent hover:bg-red-500 border border-black' >Clear cart</button>
+                    {cartItems.map(item => < AccordianItem key={item.card.info.id} card={item} restaurantImage={item.restaurantImage} />)}
+                </>
+            }
         </div>
     )
 }
