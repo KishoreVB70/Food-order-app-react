@@ -5,7 +5,7 @@
   "main": "App.js",
   "scripts": {
     "start": "parcel index.html",
-    "test": "Jest"
+    "test": "jest"
   },
   "author": "Kishore",
   "license": "ISC",
