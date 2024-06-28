@@ -25,7 +25,7 @@ const AppLayout = () =>  {
     //State variable
     const [userName, setUserName] = useState(null);
 
-    useEffect(() => setUserName("Kishore"));
+    useEffect(() => setUserName("Kishore"), []);
 
     return(
         <div className="App">
