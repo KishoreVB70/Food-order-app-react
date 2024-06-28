@@ -16,7 +16,6 @@ class AboutUs extends Component {
     }
 
     render() {
-        console.log("About render");
         return (
             <div className="aboutus">
                 <div>User Name: 

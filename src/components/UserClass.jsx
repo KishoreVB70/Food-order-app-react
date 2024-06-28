@@ -15,7 +15,6 @@ class UserClass extends React.Component {
         this.setState({
             userData: data
         })
-        console.log(data);
     }
 
     render() {

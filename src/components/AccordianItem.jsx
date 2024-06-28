@@ -11,9 +11,11 @@ function AccordianItem({card, restaurantImage}) {
     // Redux
     const dispatch = useDispatch();
 
-    const handleAddCart = (item) => {
-        console.log(item);
-        dispatch(addCart(item));
+    const handleAddCart = () => {
+        card.restaurantImage = restaurantImage;
+
+        // card.restaurantImage = restaurantImage;
+        dispatch(addCart(card));
     }
 
     return (
@@ -25,7 +27,7 @@ function AccordianItem({card, restaurantImage}) {
             </div>
 
             <div className='flex flex-coljustify-center relative items-center h-full w-1/4' >
-                <button onClick={() => handleAddCart(info)}  className='absolute bg-gray-400 opacity-80  hover:opacity-100 hover:bg-gray-700  p-1 w-14 h-8  right-16 bottom-20 rounded-lg text-white' >Add +</button>
+                <button onClick={() => handleAddCart()}  className='absolute bg-gray-400 opacity-80  hover:opacity-100 hover:bg-gray-700  p-1 w-14 h-8  right-16 bottom-20 rounded-lg text-white' >Add +</button>
                 {info.hasOwnProperty('imageId')
                     ?<img className='object-cover h-28 rounded-md w-28' src={swiggyCloudinaryImageBase + info?.imageId} />
                     :<img className='object-cover h-28 rounded-md w-28' src={swiggyCloudinaryImageBase + restaurantImage} />

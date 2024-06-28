@@ -26,7 +26,6 @@ const Header = () => {
     const onlineStatus = useOnlineStatus();
 
     const cartItems = useSelector(store => store.cartSlice.items)
-    console.log(cartItems)
 
     useEffect(() => {
         onlineStatus===true?setBg("green"):setBg("red");
