@@ -11,6 +11,7 @@ import Contact from "./components/Contact.jsx";
 import Restaurant from "./components/Restaurant.jsx";
 import Error from "./components/Error.jsx";
 import Restaurant from "./components/Restaurant.jsx";
+import Cart from "./components/Cart.jsx";
 
 // Utils
 
@@ -69,6 +70,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/restaurant/:resID",
                 element: <Restaurant />
+            },
+            {
+                path: "/cart",
+                element: <Cart />
             },
             {
                 path: "/grocery",

@@ -12,6 +12,7 @@ function AccordianItem({card, restaurantImage}) {
     const dispatch = useDispatch();
 
     const handleAddCart = (item) => {
+        console.log(item);
         dispatch(addCart(item));
     }
 

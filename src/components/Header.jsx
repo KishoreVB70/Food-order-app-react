@@ -55,7 +55,11 @@ const Header = () => {
                         <Link to={"/grocery"}>Grocery App</Link>
                     </li>
                     <li className="mx-2 hover:text-icon2 flex items-center">Help</li>
-                    <li className="mx-2 hover:text-icon2 flex items-center">Cart({cartItems.length})</li>
+                    <li className="mx-2 hover:text-icon2 flex items-center">
+                        <Link to="/cart" >
+                            Cart({cartItems.length})
+                        </Link>
+                    </li>
                     <li className="mx-2 flex items-center">{loggedUser}</li>
                     
                     <button onClick={handleLogin} className="mx-2 w-20 h-10 bg-transparent hover:bg-icon text-icon hover:text-white py-2 px-4 border border-icon rounded text-sm"  >{login}</button>
