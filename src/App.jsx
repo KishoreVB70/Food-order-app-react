@@ -10,12 +10,16 @@ import AboutUs from "./components/AboutUs";
 import Contact from "./components/Contact.jsx";
 import Restaurant from "./components/Restaurant.jsx";
 import Error from "./components/Error.jsx";
+import Restaurant from "./components/Restaurant.jsx";
 
 // Utils
-import Restaurant from "./components/Restaurant.jsx";
 
 // Context
 import UserContext from "./utils/UserContext.js";
+// Redux store
+import { Provider } from "react-redux";
+import store from "./redux/store.js";
+
 
 // Lazy component
 const Grocery = lazy(() => import("./components/Grocery.jsx"));
@@ -29,11 +33,14 @@ const AppLayout = () =>  {
 
     return(
         <div className="App">
-            <UserContext.Provider value={{ loggedUser: userName, setUserName }}>
-                <Header />
-                <Outlet />
-                <Footer/>
-            </UserContext.Provider>
+            <Provider store={store} >
+                <UserContext.Provider value={{ loggedUser: userName, setUserName }}>
+                    <Header />
+                    <Outlet />
+                    <Footer/>
+                </UserContext.Provider>
+            </Provider>
+
             </div>
     )
 }
