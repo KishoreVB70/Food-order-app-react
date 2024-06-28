@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
     name: "cartSlice",
@@ -7,8 +7,13 @@ const cartSlice = createSlice({
     },
     reducers: {
         // We should not return the state.items.push thing, we must only perform the action
-        addCart: (state, action) => {state.items.push(action.payload)},
-        deleteCart: state => {state.items.length = 0},
+        addCart: (state, action) => {
+            state.items.push(action.payload);
+        },
+        deleteCart: () => {
+            // console.log(current(state.items)); 
+            return {items: []}
+        },
         removeCart: state => {state.items.pop()},
     }
 })
