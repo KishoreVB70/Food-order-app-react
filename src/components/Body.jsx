@@ -12,7 +12,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 
 //Context
-import UserContext from "../utils/UserContext.jsx";
+import UserContext from "../utils/UserContext.js";
 
 const Body = () => {
     // State variable

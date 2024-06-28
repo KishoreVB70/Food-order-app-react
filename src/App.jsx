@@ -15,7 +15,7 @@ import Error from "./components/Error.jsx";
 import Restaurant from "./components/Restaurant.jsx";
 
 // Context
-import UserContext from "./utils/UserContext.jsx";
+import UserContext from "./utils/UserContext.js";
 
 // Lazy component
 const Grocery = lazy(() => import("./components/Grocery.jsx"));

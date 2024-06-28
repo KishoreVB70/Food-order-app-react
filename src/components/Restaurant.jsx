@@ -46,7 +46,7 @@ const Restaurant = () => {
             // <div className="flex flex-wrap p-2 my-2 justify-between">
             //     {menu.map(e => <MenuCard key={e.id} data={e} />)}
             // </div>
-             }
+        }
     </div>
   )
 }
