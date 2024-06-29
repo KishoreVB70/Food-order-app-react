@@ -13,3 +13,10 @@ test("Does component have name field", () => {
     const field = screen.getByPlaceholderText("contact");
     expect(field).toBeInTheDocument();
 })
+
+
+test("Should have three textboxes", () => {
+    render(<Contact />);
+    const field = screen.getAllByRole("textbox")
+    expect(field.length).toBe(3);
+})
