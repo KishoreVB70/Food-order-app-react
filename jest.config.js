@@ -20,9 +20,9 @@ const config = {
   // Indicates whether the coverage information should be collected while executing the test
   collectCoverage: true,
 
-  transform: {
-    '\\.[jt]sx?$': 'babel-jest',
-  },
+  // transform: {
+  //   '\\.[jt]sx?$': 'babel-jest',
+  // },
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   // collectCoverageFrom: undefined,
 
@@ -196,9 +196,9 @@ const config = {
 
   // Whether to use watchman for file crawling
   // watchman: true,
-  "transformIgnorePatterns": [
-    "node_modules/(?!(react-leaflet-custom-control)/)"
-  ],
+  // "transformIgnorePatterns": [
+  //   "node_modules/(?!(react-leaflet-custom-control)/)"
+  // ],
 };
 
 module.exports = config;
