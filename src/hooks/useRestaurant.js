@@ -40,8 +40,8 @@ const useRestaurant = () => {
             });
 
             setResData(() => streamlinedRestaurants);
-            // console.log(streamlinedRestaurants);
-        }catch(error) {
+            console.log(streamlinedRestaurants);
+        } catch(error) {
             console.log(error);
         }
     }
