@@ -15,6 +15,8 @@ const useRestaurantMenu = (resID) => {
             // Set restaurant
             const menu = await fetch(swiggyMenuAPI + resID);
             const data = await menu.json();
+            console.log(data);
+
             const restData = data?.data?.cards[2]?.card?.card?.info;
             setRestaurant(restData);
 
@@ -42,7 +44,7 @@ const useRestaurantMenu = (resID) => {
             const filteredMenuItems = menuItems.map(item => {
                 return item.card.info;
             })
-            console.log(filteredMenuItems);
+            // console.log(filteredMenuItems);
             setMenu(filteredMenuItems); 
 
         } catch(error) {
