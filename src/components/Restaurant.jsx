@@ -19,7 +19,7 @@ const Restaurant = () => {
         {restaurant === null
             ?
             <div className='flex flex-col items-center p-2 m-2 h-96 bg-gray-200' >
-                <div className="w-72 h-72 py-2 " > </div>
+                <div className="w-72 h-72 py-2"> </div>
             </div>
             :
 

@@ -31,7 +31,6 @@ it("Should render with 8 cards before search and 1 after search", async() => {
 
     // Check if only one resCard
     const resCard = screen.getAllByTestId("resCard");
-    console.log(resCard);
     expect(resCard.length).toBe(1);
 
 })

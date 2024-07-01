@@ -54,7 +54,6 @@ const Body = () => {
     } 
 
     const search = () => {
-        console.log("yelei ya yeyaa");
         const filteredData = restData.filter(data => {
             let {area, resName} = data;
             area = area.toUpperCase();

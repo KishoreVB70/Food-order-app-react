@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react"
 import ResCard, { withPromoted } from "../components/ResCard"
 import "@testing-library/jest-dom";
-import data from "../mocks/restCard.json";
+import data from "../mocks/mockAllRestInfo.json";
 
 it("Should render", () => {
     render(<ResCard data={data} />);
