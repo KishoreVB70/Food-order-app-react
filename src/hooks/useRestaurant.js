@@ -11,6 +11,7 @@ const useRestaurant = () => {
         try {
             const data = await fetch(swiggyAPI);
             const jsonData = await data.json();
+            console.log(jsonData);
     
             // Optional chaining
             const restaurants = 
@@ -40,7 +41,7 @@ const useRestaurant = () => {
             });
 
             setResData(() => streamlinedRestaurants);
-            console.log(streamlinedRestaurants);
+            // console.log(streamlinedRestaurants);
         } catch(error) {
             console.log(error);
         }
