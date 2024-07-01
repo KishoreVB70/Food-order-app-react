@@ -35,6 +35,7 @@ const Body = () => {
     // Context
     const {setUserName, LoggedUser} = useContext(UserContext);
 
+    // Higher order component;
     const PromotedRestaurant = withPromoted(ResCard);
 
     const filterRated = () => {
