@@ -19,7 +19,7 @@ function AccordianItem({card, restaurantImage}) {
     }
 
     return (
-        <div className=' w-full mb-3 m-2 p-2 flex flex-row items-center justify-between text-left border-b-2' > 
+        <div data-testid="accordianItem" className=' w-full mb-3 m-2 p-2 flex flex-row items-center justify-between text-left border-b-2' > 
             <div className='flex flex-col w-3/4' >
                 <h1  className='mr-4' >{info.name}</h1>
                 <h1>Rs.{info.price?info.price/100:info.defaultPrice/100}</h1>
