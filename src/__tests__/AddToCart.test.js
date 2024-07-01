@@ -57,4 +57,12 @@ it("should render restaurant page", async() => {
     const updatedAccordianItems = screen.getAllByTestId("accordianItem");
     expect(updatedAccordianItems.length).toBe(17);
 
+    // 9) clear cart
+    const clearCart = screen.getByRole("button", {"name": "Clear cart"});
+    fireEvent.click(clearCart);
+
+    // 10) Check number of items left
+    const updatedAccordianItems1 = screen.getAllByTestId("accordianItem");
+    expect(updatedAccordianItems1.length).toBe(16);
+
 })
