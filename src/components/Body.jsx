@@ -73,7 +73,7 @@ const Body = () => {
         <div className="flex flex-col m-2 p-2" >
             <div className="mx-4">
                 <input type="text" className=" p-1 border border-icon" 
-                    value={searchInput} 
+                    value={searchInput} placeholder="search"
                     onChange={(e) => setSearchInput(e.target.value)}  
                 />
                 <button className=" hover:text-white py-1 hover:bg-icon mx-2 px-2 border border-icon text-icon " onClick={search} >Search</button>
