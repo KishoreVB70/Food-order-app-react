@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react"
+import { fireEvent, render, screen } from "@testing-library/react"
 import Body from "../components/Body"
 import "@testing-library/jest-dom";
 import data from "../mocks/mockJsonDataRestaurants.json";
@@ -11,15 +11,27 @@ global.fetch = jest.fn(() => {
     })
 })
 
-it("Should render with search", async() => {
+it("Should render with 8 cards before search and 1 after search", async() => {
     await act(async() => {
         render(
             <BrowserRouter>
                 <Body />
             </BrowserRouter>
         )
-    }
-)
+    })
+    const resCardBeforeSearch = screen.getAllByTestId("resCard");
+    expect(resCardBeforeSearch.length).toBe(8);
+
+
     const searchBox = screen.getByPlaceholderText("search");
-    expect(searchBox).toBeInTheDocument();
+    const searchButton = screen.getByTestId("searchBtn");
+
+    fireEvent.change(searchBox, {target: {value: "chinese"}});
+    fireEvent.click(searchButton);
+
+    // Check if only one resCard
+    const resCard = screen.getAllByTestId("resCard");
+    console.log(resCard);
+    expect(resCard.length).toBe(1);
+
 })

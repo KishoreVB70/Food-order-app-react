@@ -54,6 +54,7 @@ const Body = () => {
     } 
 
     const search = () => {
+        console.log("yelei ya yeyaa");
         const filteredData = restData.filter(data => {
             let {area, resName} = data;
             area = area.toUpperCase();
@@ -76,21 +77,24 @@ const Body = () => {
                     value={searchInput} placeholder="search"
                     onChange={(e) => setSearchInput(e.target.value)}  
                 />
-                <button className=" hover:text-white py-1 hover:bg-icon mx-2 px-2 border border-icon text-icon " onClick={search} >Search</button>
+                <button data-testid="searchBtn"  className=" hover:text-white py-1 hover:bg-icon mx-2 px-2 border border-icon text-icon " onClick={search} >Search</button>
                 <button className="hover:text-white  hover:bg-icon mx-2 px-2 border border-icon text-icon rounded-lg" onClick={filterRated} >{filterBtn}</button>
                 <input type="text" className=" p-1 border border-icon" 
                     value={LoggedUser} 
                     onChange={e => setUserName(e.target.value)}  
                 />
-                <button className=" hover:text-white py-1 hover:bg-icon mx-2 px-2 border border-icon text-icon " onClick={search} >Search</button>
+                <button className=" hover:text-white py-1 hover:bg-icon mx-2 px-2 border border-icon text-icon " onClick={search} >User</button>
 
             </div>
 
             {restData === null 
                 ? <Shimmer />
                 :
-                filteredRestData === null
-                    ? <h1>No data found</h1>
+                filteredRestData === null || filteredRestData.length === 0
+                    ? 
+                    <div className="flex items-center justify-center h-3/6" >
+                        <h1>No data found</h1>
+                    </div>
                     :
                     <div className="flex flex-wrap p-2 my-2 justify-between">
                         {
